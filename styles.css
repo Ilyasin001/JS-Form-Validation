@@ -1,18 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+--primary-bg: #A78A7F;
+--primary-text: #8e2525;
+--secondary-bg: #735751;
+--tetiary-bg: #E7D7C1;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--primary-bg);
     margin: 0;
     padding: 0;
     font-family: alansans, roboto, sans-serif;
+    color: var(--primary-text);
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
     padding: 20px;
     text-align: center;
+    box-shadow: 0 0 15px #000000;
 }
 
 main {
@@ -22,30 +31,35 @@ main {
 }
 
 #container {
-    background-color: white;
+    background-color: var(--secondary-bg);
     padding: 25px;
     border-radius: 30px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 600px;
+    max-width: 600px;
+    width: 90%;
 }
 
-section {
+section, #middle-section div{
+    background-color: var(--primary-bg);
     margin-bottom: 10px;
-    border: solid 1px #ddd;
+    border: solid 1px #000;
     padding: 20px;
     display: flex;
     flex-direction: column;
     border-radius: 25px;
 }
+#middle-section div{
+    width: 100%;
+}
 
-#name-section{
+#name-section, #middle-section{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     gap: 10px;
 }
 
-#name-section input {
+#name-section input, #middle-section input{
     width: 80%;
     margin-top: 8px;
 
@@ -58,7 +72,7 @@ section label {
 }
 
 input, select {
-    background-color: rgb(0, 120, 255,0.3);
+    background-color: var(--tetiary-bg);
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
@@ -66,19 +80,23 @@ input, select {
     font-size: 15px;
 }
 
-#gender-section{
+
+#residency-section, #gender-section{
     display: flex;
     flex-direction: column;
 }
 
-#residence-section div, #gender-section div{
+#residency-section div, #gender-section div{
     display: flex;
     flex-direction: row;
-    gap: 40px;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    padding-top: 20px;
 }
 
-#residence-section label, #gender-section label{
-    background-color: rgb(0, 120, 255,0.3);
+#residency-section label, #gender-section label{
+    background-color: var(--tetiary-bg);
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 8px;
@@ -87,27 +105,39 @@ input, select {
     margin-right: 10px;
 }
 
-
-/* Hide the actual radio input */
-#residence-section  input[type="radio"],#gender-section input[type="radio"] {
+#residency-section  input[type="radio"], #gender-section input[type="radio"] {
     position: absolute;
     opacity: 0;
 }
 
-#gender-section input[type = "radio"]:checked + label {
-    background-color: #ff0000;
+#gender-section input[type = "radio"]:checked + label, #residency-section input[type = "radio"]:checked + label {
+    background-color:  var(--secondary-bg);
     color: white;
 }
 
-
-#gender-section legend{
+#gender-section legend, #residency-section legend{
     width: 100%;
     font-size: 16px;
     font-weight: bold;
 }
+#gender-section #other-gender{
+    display: none;
+}
+#img-section img {
+    width: 150px;
+    height: auto;
+    border-radius: 20px;
+    border: 3px solid var(--tetiary-bg);
+    padding: 5px;
+    display: block;
+    margin: 10px auto;
+    transition: transform 0.4s, box-shadow 0.4s ease;
+}
 
-#residence-section{
 
+#img-section img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 #buttons-section {
@@ -121,6 +151,7 @@ input, select {
 button {
     padding: 10px 20px;
     font-size: 16px;
+    font-weight: bold;
     margin-right: 10px;
     cursor: pointer;
     border: none;
@@ -134,13 +165,112 @@ button[type="submit"] {
 }
 
 button[type="reset"] {
-    background-color: #777;
-    color: white;
+    background-color: var(--tetiary-bg);
+    color: black;
 }
 
 button:hover {
     opacity: 0.8;
 }
+
+.theme-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 14px;
+
+    background: var(--card);
+    color: var(--text);
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+    z-index: 9999;
+}
+
+.theme-btn:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.05);
+}
+
+.theme-btn:active {
+    transform: scale(0.95);
+}
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-size: 14px;
+    opacity: 0;
+    animation: fadeInOut 2.5s ease forwards;
+    z-index: 9999;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+.dark-theme {
+    --primary-bg: #1d1d1d;
+    --secondary-bg: #333;
+    --tetiary-bg: #555;
+    --primary-text: #eaeaea;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+}
+
+.dark-theme section {
+    background-color: #2a2a2a;
+}
+
+.dark-theme input,
+.dark-theme select {
+    background-color: #444;
+    color: white;
+}
+
+.dark-theme #theme-button {
+    background-color: #444;
+}
+
+
+.warm-theme {
+    --primary-bg: #FFEDD5; 
+    --secondary-bg: #D97706;
+    --tetiary-bg: #FDE68A;
+    --primary-text: #7C2D12;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+}
+
+.warm-theme section {
+    background-color: #FFE8CC;
+}
+
+.warm-theme input,
+.warm-theme select {
+    background-color: #FFF3D6;
+}
+
+.warm-theme #theme-button {
+    background-color: #D97706;
+}
+
 
 footer {
     text-align: center;
