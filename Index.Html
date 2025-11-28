@@ -34,14 +34,19 @@ Upload photo question  /
     </header>
 
     <main>
-        <section>
-            <h2>Information</h2>
+        <section id = "container">
 
             <form id="infoForm">
 
-                <section id = "name-section"> 
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                <section id = "name-section">
+                    <div>
+                        <label for="Fname">Forename:</label>
+                        <input type="text" id="Fname" name="Fname" placeholder="John" required>
+                    </div> 
+                    <div>
+                        <label for="Sname">Surname:</label>
+                        <input type="text" id="Sname" name="Sname" placeholder="Smith" required>
+                    </div>
                 </section>
                 <br>
                 <section id = "email-section"> 
@@ -55,14 +60,12 @@ Upload photo question  /
                 <section id = "age-section"> 
                     <label for="age">Age:</label>
                     <input type="number" id="age" name="age" min="9" max="101" placeholder="18" required>
-                    <br><br>
                 </section>
                 <br>
 
                 <section id = "DOB-section"> 
                     <label for="DOB">Date Of Birth:</label>
                     <input type="date" name="DOB" id="DOB" min="1920-01-01" max="2025-10-31" required>
-                    <br><br>
                 </section>
                 <br>
                 
