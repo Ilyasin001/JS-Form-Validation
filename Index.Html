@@ -39,25 +39,34 @@ Upload photo question  /
 
             <form id="infoForm">
 
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" placeholder="John Doe" required>
-                <br><br>
+                <section id = "name-section"> 
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </section>
+                <br>
+                <section id = "email-section"> 
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email"
+                        placeholder="example@email.com"
+                        pattern=".+\.com" required>
+                </section>
+                <br>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"
-                    placeholder="example@email.com"
-                    pattern=".+\.com" required>
-                <br><br>
+                <section id = "age-section"> 
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="9" max="101" placeholder="18" required>
+                    <br><br>
+                </section>
+                <br>
 
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" min="9" max="101" placeholder="18" required>
-                <br><br>
-
-                <label for="DOB">Date Of Birth:</label>
-                <input type="date" name="DOB" id="DOB" min="1920-01-01" max="2025-10-31" required>
-                <br><br>
-
-                <fieldset>
+                <section id = "DOB-section"> 
+                    <label for="DOB">Date Of Birth:</label>
+                    <input type="date" name="DOB" id="DOB" min="1920-01-01" max="2025-10-31" required>
+                    <br><br>
+                </section>
+                <br>
+                
+                <section id = "gender-section">
                     <legend>Gender:</legend>
 
                     <label><input type="radio" name="gender" value="male" required> Male</label>
@@ -67,57 +76,62 @@ Upload photo question  /
                     <br><br>
                     <input type="text" id="other-gender" name="other-gender"
                         placeholder="Please specify" disabled>
-                </fieldset>
+                </section>
                 <br>
 
-                <label for="ethnicity">Ethnicity:</label>
-                <select id="ethnicity" name="ethnicity" required>
-                    <option value="" disabled selected>Select Country</option>
-                </select>
-                <br><br>
+                <section id = "ethnicity-section">
+                    <label for="ethnicity">Ethnicity:</label>
+                    <select id="ethnicity" name="ethnicity" required>
+                        <option value="" disabled selected>Select Country</option>
+                    </select>
+                </section>
+                <br>
 
-                <fieldset>
+                <section id = "residence-section">
                     <legend>Years in the UK:</legend>
 
                     <label><input type="radio" name="yearsUK" value="less1" required> &lt; 1 year</label>
                     <label><input type="radio" name="yearsUK" value="1to3" required> 1 - 3 years</label>
                     <label><input type="radio" name="yearsUK" value="3plus" required> 3+ years</label>
-                </fieldset>
+                </section>
                 <br>
 
-                <label for="postal-code">Enter postcode:</label>
-                <input type="text" id="postal-code" name="postal-code" placeholder="SW14 8TV" required>
-                <br><br>
-
-                <label for="fb-team">Supporting Premier League Team:</label>
-                <select id="fb-team" name="fb-team" required>
-                    <option value="" disabled selected>Select A Team</option>
-                </select>
-                <br><br>
-
-                <label for="fb-team-img">Upload image of supporting team:</label>
-                <input type="file" id="fb-team-img" name="fb-team-img" accept="image/*" required>
-                <br><br>
-
-                <label>Name the following football team:</label>
+                <section id = "postcode-section"> 
+                    <label for="postal-code">Enter postcode:</label>
+                    <input type="text" id="postal-code" name="postal-code" placeholder="SW14 8TV" required>
+                </section>
                 <br>
-                <img src="/Wolverhampton-Logo.png" alt="Football Team Logo" width="150">
-                <br><br>
 
-                <label for="fb-team-desc">Reason for supporting team:</label>
-                <input type="text" id="fb-team-desc" name="fb-team-desc"
-                    placeholder="I support this team because...">
-                <br><br>
+                <section id = "favanimal-section"> 
+                    <label for="fav-animal">What is your favourite animal:</label>
+                    <select id="fav-animal" name="fav-animal" required>
+                        <option value="" disabled selected>Select an Animal</option>
+                    </select>
+                </section>
+                <br>
 
-                <button type="reset">Reset</button>
-                <button type="submit">Submit</button>
+                <section id = "imgupl-section"> 
+                    <label for="animal-img">Upload image of an animal:</label>
+                    <input type="file" id="animal-img" name="animal-img" accept="image/*" required>
+                </section>
 
+                <section id = "img-section"> 
+                    <label>Name the following animal:</label>
+                    <br>
+                    <img src="/Cat-Photo" alt="Football Team Logo" width="150">
+                </section>
+
+                <section id = "buttons-section"> 
+                    <button type="reset">Reset</button>
+                    <button type="submit">Submit</button>
+                </section>
             </form>
 
         </section>
     </main>
 
     <footer>
+        <p>@ JS Form Validation Copyright</p>
     </footer>
 
 </body>
